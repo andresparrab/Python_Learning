@@ -29,3 +29,6 @@ def count_small(numbers):
 lotto = [4, 8, 15, 16, 23, 42]
 small = count_small(lotto)
 print (small)
+
+
+##testing stuff
