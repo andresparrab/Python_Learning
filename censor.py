@@ -1,13 +1,11 @@
+#This function replace the word you want to cencor in the phrase to *
 def censor(text,word):
-    for letter in text:
- #       if word in text:
- #           for letter in word:
- #               word=word.replace(letter,'*')
- #    #           print(word)
- #       else:
+    original=word
+    for letter in word:
+        word =word.replace(letter,'*')
+    text=text.replace(original,word)
+    return text
 
 
-    return word
+print(censor('this hack is wack, but i love to hack','hack'))
 
-
-print(censor('this hack is wack','hack'))
