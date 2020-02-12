@@ -30,5 +30,22 @@ print(letters[::-1])
 
 #this reverse the list order and aisng it to the variable backwards
 my_list = range(1, 11)
-
 backwards = my_list[::-1]
+
+#more advance list
+to_21 = range(1,21)
+odds=to_21[::2]
+middle_third=to_21[7:14]
+print(sorted(to_21))
+print(sorted(odds))
+print(sorted(middle_third))
+
+
+#The string in the editor is garbled in two ways:
+# Our message is backwards.
+#The letter we want is every other letter.
+
+garbled = "!XeXgXaXsXsXeXmX XtXeXrXcXeXsX XeXhXtX XmXaX XI"
+ungrable= garbled[::2]
+message = ungrable[::-1]
+print(message)
