@@ -11,6 +11,6 @@ print(A or False)
 
 today = 'Wenedsday'
 tomorrow = 'Thursday'
-yoga_da = 'Thursday'
-print(today is yoga_da)
-print(tomorrow is yoga_da)
+yoga_day = 'Thursday'
+print(today is yoga_day)
+print(tomorrow is yoga_day)
