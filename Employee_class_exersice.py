@@ -15,6 +15,10 @@ class PartTimeEmployee(Employee):
           self.hours = hours
           return  hours * 100.00
 
+#Get the calculate_wage method from Employee parent(super)class and add it to ParTimeEmployee
+      def full_time_wage(self, hours):
+          return super(PartTimeEmployee, self).calculate_wage(hours)
+
 class CEO(Employee):
       def greet(self, other):
         print("Get back to work, %s!" % other.name)
@@ -29,3 +33,4 @@ ceo.greet(emp)
 
 print(emp.calculate_wage(10),' kr')
 print(part.calculate_wage(10),' kr')
+print(part.full_time_wage(10))
