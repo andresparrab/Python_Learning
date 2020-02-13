@@ -9,4 +9,5 @@ class Point3D(object):
 
 
 my_point = Point3D(1,2,3)
+#this is how it woud be represented
 print(my_point)
