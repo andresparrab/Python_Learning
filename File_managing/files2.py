@@ -14,7 +14,7 @@ f.close()
 
 
 #another way to open file and close automaticly is like this:
-with open('text.txt','w') as my_file:
+with open('text.txt', 'w') as my_file:
   my_file.write('Succes!!!!')
 
 #this if statment will check if the file is not close then close it.

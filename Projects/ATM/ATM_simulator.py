@@ -1,4 +1,4 @@
-from ATM.ATM_Menu_Class import Menu
+from Projects.ATM.ATM_Menu_Class import Menu
 
 def card_digits(digits):
     control = 1234
