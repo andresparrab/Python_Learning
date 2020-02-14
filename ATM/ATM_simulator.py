@@ -1,4 +1,4 @@
-from ATM_Menu_Class import Menu
+from ATM.ATM_Menu_Class import Menu
 
 def card_digits(digits):
     control = 1234
@@ -48,4 +48,6 @@ rerun='y'
 while rerun == 'y':
     run_Atm(menu)
     rerun = input("Do you wish to see the menu again?  yes/no   ")
+    if rerun =='n':
+        print('Thank you for using Andres banc, enjoy your day!')
 
