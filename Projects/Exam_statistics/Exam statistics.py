@@ -37,4 +37,5 @@ print(grades_variance(grades))
 print('\nThe standar deviation!')
 variance = grades_variance(grades)
 print(grades_std_deviation(variance))
+#d
 
