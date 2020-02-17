@@ -18,14 +18,14 @@ from time import sleep
 sample_dna = ['GTA','GGG','CAC']
 
 def read_dna(suspect_file):
-    suspect_dna =''
 #   Open the sustect files and save the dna string into a variable
     with open(suspect_file,'r') as file:
         suspect_dna = file.readline()
+        print(len(suspect_dna))
     return suspect_dna
 
-#Codons spliting
-def codon_splitong(suspect_file):
+#Codons splitting
+def codon_splitting(suspect_file):
     suspect_codons=[]
     for i in range(0, len(suspect_file), 3):
         suspect_codons.append(suspect_file[i:i+3])
@@ -33,16 +33,18 @@ def codon_splitong(suspect_file):
 
 def analyze(suspect):
     match =0
-    codons = codon_splitong(suspect)
+    codons = codon_splitting(suspect)
     for codon in codons:
          if codon in sample_dna:
             match +=1
     return match
 
 def is_guilty(suspect):
-
+    #Calls the read_dna function to read the file of the suspect
     suspect_dna = read_dna(suspect)
+    #Calls the analyze function to analyze the suspects DNA witht he sample DNA
     match = analyze(suspect_dna)
+    #If the sample DNA matches the codons then we have our suspect. it has to match all 3 of the codons at least one time.
     if match >=3:
         print('Suspect is guilty. Matches found: %s, minimum matches to coincide are 3' %(match))
     else:
