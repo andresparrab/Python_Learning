@@ -14,3 +14,50 @@ print(list(filter(lambda big_squares: 30<big_squares<71,squares)))
 garbled = "IXXX aXXmX aXXXnXoXXXXXtXhXeXXXXrX sXXXXeXcXXXrXeXt mXXeXsXXXsXaXXXXXXgXeX!XX"
 message = list(filter(lambda x: x!='X',garbled))
 print(''.join(message))
+
+
+#this will take the  list in items and map ever x in item to squared them or cube them.
+# Save it as a new list and asign them to the variable squared or cubed
+items=[1,2,3,4,5]
+squared = list(map(lambda x: x**2,items))
+cubed = list(map(lambda x: x**3,items))
+print(squared)
+print(cubed)
+print(items)
+
+#reduce takes a list as argument apply some operation to it and return a single output
+from functools import reduce
+#it will reduce the value from 4 to 3 to 2 to 1. same as x-- from 4 to 1 and save the result to y ever time it iterates
+'''
+same as:
+def product():
+    x=[1,2,3,4]
+    y=1
+    for item in x[::-1]:
+        y *=item
+    return y
+
+
+But only in one line!!!!
+'''
+product = reduce(lambda x,y:x*y,[1,2,3,4])
+print(product)
+
+
+'''
+Another example
+
+squared = reduce(lambda x,y:(x**2)*y,[1,2,3,4])
+print(squared)
+
+Are the same as :
+
+
+def squared2():
+    x=[1,2,3,4]
+    y=1
+    for item in x[::-1]:
+        y *=(item**2)
+    return y
+print(squared2())
+'''
