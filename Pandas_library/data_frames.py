@@ -18,14 +18,35 @@ print(data_table)
 
 #more advance and comprenhensiive table made out of two series
 #much easier to read
-subjects_scores1 = pandas.Series([40,45,69], index=['maths','chemmistry','physics'])
-subjects_scores2 = pandas.Series([65,75,88,98], index=['maths','chemmistry','physics','c++'])
+subjects_scores1 = pandas.Series([40,45,69], index=['maths','chemistry','physics'])
+subjects_scores2 = pandas.Series([65,75,88,98], index=['maths','chemistry','physics','c++'])
 
-students_table = pandas.DataFrame({'Jim':subjects_scores1,'Andres':subjects_scores2})
+students_table = pandas.DataFrame({'Jim':subjects_scores1,
+                                   'Andres':subjects_scores2,
+                                   'Pam':pandas.Series([23,45,76,342,54], index=['maths','chemistry','physics','c++', 'english'])
+                                   })
 print(students_table)
 
 # adding a new columm in form of a new student
-students_table['Jonatan'] = pandas.Series([12,45,99,34], index=['maths','chemmistry','physics','c++'])
+students_table['Jonatan'] = pandas.Series([12,45,99,34], index=['maths','chemistry','physics','c++'])
 print(students_table)
-del(students_table['Jim'])
+
+# to delete a whole columm then use the del function like this
+#del(students_table['Jim'])
+#print(students_table)
+
+#how to locate a row
+print('\n\n')
+print(students_table.loc['english'])
+
+#how to add a whole new row append.
+students_table=students_table.append(pandas.DataFrame([[90,56,32]], columns=['Jim','Andres','Jonatan']))
+print(students_table)
+
+#export the dataset to a csv
+students_table.to_csv('students.csv')
+students_table.to_excel(r'C:\Users\Gloria\PycharmProjects\adureka\Pandas_library\Students.xlsx')
+
+#remove a row
+students_table =students_table.drop('c++')
 print(students_table)
