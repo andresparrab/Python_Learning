@@ -7,23 +7,16 @@ dataset=pd.read_csv('AllCountries.csv')
 #print(dataset)
 #print(dataset.dtypes)
 # Asign only the columns of Country,GDP and BirthRate to selected_dataset
-selected_data = dataset.loc[:, ['Country', 'GDP','BirthRate']]
+selected_data = dataset.loc[:, ['Country', 'GDP','BirthRate','Internet']]
 #print(selected_data)
-sorted_data = selected_data.sort_index(by='Country', ascending=False)
-#selected_sorted_data =sorted_data.iloc[:10]
-#print(selected_sorted_data)
 
-# Asign the values of the GDP to x for ploting later
-#x = np.array(selected_data['GDP'])
-# Asign the values of BirthRate to y for ploting later
-#y = np.array(selected_data['BirthRate'])
-# Make the scater function wuth the GDP and BirthRate
-#plt.scatter(x,y)
-# limit the x axis to 20000
-#plt.xlim(0,20000)
+sorted_data = selected_data.sort_values(by='GDP',ascending=False)
+selected_sorted_data =sorted_data.iloc[:10]
+print(selected_sorted_data)
+
+
+plt.pie(selected_sorted_data['GDP'], labels=selected_sorted_data['Country'])
+
 # Show the plot
-#plt.title('Relations betwen GDP and BirthRate')
-#plt.xlabel('GDP')
-#plt.ylabel('BirthRate')
-#plt.show()
-#print(selected_data['Country'][3])
+plt.title('GDP of the ritches couuntries')
+plt.show()
