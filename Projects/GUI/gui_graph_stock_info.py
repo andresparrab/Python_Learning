@@ -5,7 +5,7 @@ import dash_html_components as html
 import pandas_datareader.data as web
 import datetime
 
-start = datetime.datetime(2015,2,20)
+start = datetime.datetime(2016,2,20)
 end = datetime.datetime.now()
 
 stock = 'TSLA'
