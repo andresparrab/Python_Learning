@@ -8,7 +8,7 @@ app = dash.Dash()
 
 app.layout = html.Div(children=[
     # create a dcc input field from dash core components
-    dcc.Input(id='input',value='Please enter a value: ', type='text'), # this is where you will enter the text the field
+    dcc.Input(id='input',value='', type='text'), # this is where you will enter the text the field
     # Create a html component
     html.Div(id='output')
     ])
@@ -22,7 +22,7 @@ def update_value(input_data): # This will update the data you write in real time
     try:
         return 'The power is: ',str(float(input_data)**2)
     except:
-        return 'Some error'
+        return 'Please enter a number!!'
 
 
 if __name__== '__main__':
