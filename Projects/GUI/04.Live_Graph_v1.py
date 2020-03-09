@@ -22,7 +22,7 @@ app.layout= html.Div(
         dcc.Graph(id='live-graph', animate=True),
         dcc.Interval(
             id='graph-update',
-            interval=800
+            interval=550
         ),
     ]
 )
