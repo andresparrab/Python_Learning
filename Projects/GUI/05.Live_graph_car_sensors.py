@@ -118,7 +118,7 @@ def update_graph(data_names, n):
                                                         margin={'l':50,'r':1,'t':45,'b':1},
                                                         title='{}'.format(data_name))}
             ), className=class_choice))
-
+    print(graphs)
     return graphs
 
 if __name__== '__main__':

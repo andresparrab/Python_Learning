@@ -9,9 +9,10 @@ import pandas as pd
 # Parameters
 server = 'localhost,1420'
 db= 'CMRADatabase'
+password = 'Cmra1234'
 
 # Create the connection
-conn = pyodbc.connect('DRIVER={/opt/microsoft/msodbcsql/lib64/libmsodbcsql-17.4.so.2.1};SERVER=localhost,1420;DATABASE=CMRADatabase;UID=sa;PWD=Cmra1234')
+conn = pyodbc.connect('DRIVER={/opt/microsoft/msodbcsql/lib64/libmsodbcsql-17.4.so.2.1};SERVER=' + server +';DATABASE=' +db + ';UID=sa;PWD=' + password)
 #conn = pyodbc.connect('DRIVER={SQL server};SERVER=localhost,1420;DATABASE=CMRADatabase;UID=sa;PWD=Cmra1234')
 
 
