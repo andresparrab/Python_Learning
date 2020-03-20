@@ -21,7 +21,7 @@ df = df[['Adj. Open','Adj. High','Adj. Low','Adj. Close','Adj. Volume']]
 
 df['HL_PCT'] = (df['Adj. High']- df['Adj. Low']) / df['Adj. Close'] * 100.0
 df['PCT_change'] = (df['Adj. Close']- df['Adj. Open']) / df['Adj. Open'] * 100.0
-
+#            PRICE        X       X            X
 df = df[['Adj. Close','HL_PCT','PCT_change','Adj. Volume']]
 #print(df.head())
 
@@ -32,8 +32,8 @@ df.fillna(-99999, inplace=True)
 # math.ceil will round up to a whole number , if the len of df is 22
 # and the 1 the 10% is 0.1*22= 2.2 it will round up to 3
 # then change to int at the end instead of 2.0
-forecast_out =int(math.ceil(0.01*len(df))) # we try to predict 1%=35 days of the data frame
-print(forecast_out)
+forecast_out =int(math.ceil(0.1*len(df))) # we try to predict 1%=35 days of the data frame
+#print(forecast_out)
 # in the column label it will take the row of forecast_col and shift insert with the last value of
 # forecast out that is 1% into the future
 df['label'] = df[forecast_col].shift(-forecast_out) # the 'label' column will have the Adj. Close price 1%.. is 35 days in advance into the future
@@ -46,15 +46,16 @@ X = np.array(df.drop(['label'],1)) # the features has to be everything except th
 
 # Scale the features
 X = preprocessing.scale(X) # maybe less good to use in real time data
+X_lately = X[-forecast_out:] #all the   x from -forecast out to the end. in this case the last 35
 X = X[:-forecast_out] # all the x values will be until the last value of forecast_out
-X_lately = X[-forecast_out:] #all the   x from -forecast_out in this case the last 35
+
 # lowercase y are the labes
 #y = np.array(df['label'])
 
 df.dropna(inplace=True)
 y = np.array(df['label'])
 #y = np.array(df['label'])
-print(len(X),len(y))
+#print(len(X),len(y))
 
 # we are creating our training and testing set
 
@@ -86,8 +87,12 @@ print(forecast_set, accuracy, forecast_out)
 
 
 df['Forecast'] = np.nan #createthe last column ame Forecast
+
+
 last_date = df.iloc[-1].name
+print('The last_date = df.iloc[-1].name is ::::::::::::::::::: ', last_date)
 last_unix = last_date.timestamp()
+print('timestamp is /////////////////  ', last_unix)
 one_day = 86400
 next_unix= last_unix + one_day
 

@@ -1,4 +1,4 @@
-import dash
+import dash, datetime
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
@@ -114,7 +114,8 @@ def update_graph(data_names, n):
     # this is what we will return, a list of graphs
     graphs = []
     data_dict = get_data()
-    #print(data_dict)
+
+
 
     if len(data_names)>2:
         class_choice = 'col s12 m6 l4'
@@ -125,7 +126,8 @@ def update_graph(data_names, n):
 
     for data_name in data_names:
         #print(data_dict[data_name])
-
+        #print(data_dict[data_name][0].info())
+        print(data_dict[data_name][0])
         if data_name == "Head Angle":
             data1 = go.Scatter(
 
@@ -151,9 +153,11 @@ def update_graph(data_names, n):
                 id=data_name,
                 animate=True,
                 figure={'data': [data1,data2], 'layout': go.Layout(
-                    xaxis=dict(range=[min(data_dict[data_name][0]), max(data_dict[data_name][0])]),
+                    xaxis=dict(range=[min(data_dict[data_name][0]), max(data_dict[data_name][0])],
+                               type='date'
+                               ),
                     yaxis=dict(range=[min(data_dict[data_name][2]), max(data_dict[data_name][2])]),
-                    margin={'l': 50, 'r': 1, 't': 45, 'b': 1},
+                    #margin={'l': 50, 'r': 1, 't': 45, 'b': 1},
                     title='{}'.format(data_name))}
             ), className=class_choice))
 
@@ -182,9 +186,11 @@ def update_graph(data_names, n):
                 id=data_name,
                 animate=True,
                 figure={'data': [data1,data2], 'layout': go.Layout(
-                    xaxis=dict(range=[min(data_dict[data_name][0]), max(data_dict[data_name][0])]),
+                    xaxis=dict(range=[min(data_dict[data_name][0]), max(data_dict[data_name][0])],
+                               type='date'
+                               ),
                     yaxis=dict(range=[min(data_dict[data_name][2]), max(data_dict[data_name][2])]),
-                    margin={'l': 50, 'r': 1, 't': 45, 'b': 1},
+                    #margin={'l': 50, 'r': 1, 't': 45, 'b': 1},
                     title='{}'.format(data_name))}
             ), className=class_choice))
 
@@ -213,9 +219,11 @@ def update_graph(data_names, n):
                 id=data_name,
                 animate=True,
                 figure={'data': [data1,data2], 'layout': go.Layout(
-                    xaxis=dict(range=[min(data_dict[data_name][0]), max(data_dict[data_name][0])]),
+                    xaxis=dict(range=[min(data_dict[data_name][0]), max(data_dict[data_name][0])],
+                               type='dates'
+                               ),
                     yaxis=dict(range=[min(data_dict[data_name][2]), max(data_dict[data_name][2])]),
-                    margin={'l': 50, 'r': 1, 't': 45, 'b': 1},
+                    #margin={'l': 50, 'r': 1, 't': 45, 'b': 1},
                     title='{}'.format(data_name))}
             ), className=class_choice))
 
@@ -223,6 +231,7 @@ def update_graph(data_names, n):
 
             data = go.Scatter(
 
+                #x=data_dict[data_name][0],
                 x=data_dict[data_name][0],
                 y=data_dict[data_name][1],
 
@@ -234,9 +243,13 @@ def update_graph(data_names, n):
             graphs.append(html.Div(dcc.Graph(
                 id=data_name,
                 animate=True,
-                figure={'data': [data],'layout' : go.Layout(xaxis=dict(range=[min(data_dict[data_name][0]),max(data_dict[data_name][0])]),
+                figure={'data': [data],'layout' : go.Layout(xaxis=dict(
+                                                            range=[min(data_dict[data_name][0]),max(data_dict[data_name][0])],
+                                                            type='date'),
+
                                                             yaxis=dict(range=[min(data_dict[data_name][1]),max(data_dict[data_name][1])]),
-                                                            margin={'l':50,'r':1,'t':45,'b':1},
+
+                                                            #margin={'l':50,'r':1,'t':45,'b':1},
                                                             title='{}'.format(data_name))}
             ), className=class_choice))
     return graphs

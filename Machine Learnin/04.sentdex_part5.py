@@ -31,7 +31,7 @@ df.fillna(-99999, inplace=True)
 # math.ceil will round up to a whole number , if the len of df is 22
 # and the 1 the 10% is 0.1*22= 2.2 it will round up to 3
 # then change to int at the end instead of 2.0
-forecast_out =int(math.ceil(0.01*len(df))) # we try to predict 1%=35 days of the data frame
+forecast_out =int(math.ceil(0.1*len(df))) # we try to predict 1%=35 days of the data frame
 print(forecast_out)
 # in the column label it will take the row of forecast_col and shift insert with the last value of
 # forecast out that is 1% into the future
@@ -41,12 +41,13 @@ df['label'] = df[forecast_col].shift(-forecast_out) # the 'label' column will ha
 #print(df.head(20))
 
 # Capital X are the features
-X = np.array(df.drop(['label'],1)) # the features has to be everything except the label column ",1" is for columns
+X = np.array(df.drop(['label','Adj. Close'],1)) # the features has to be everything except the label column ",1" is for columns
 
 # Scale the features
 X = preprocessing.scale(X) # maybe less good to use in real time data
-X = X[:-forecast_out] # all the x values will be until the last value of forecast_out
 X_lately = X[-forecast_out:] #all the   x from -forecast_out in this case the last 35
+X = X[:-forecast_out] # all the x values will be until the last value of forecast_out
+
 # lowercase y are the labes
 #y = np.array(df['label'])
 
