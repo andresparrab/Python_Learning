@@ -13,7 +13,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 
-url = "https://archive.ics.uci.edu/ml/machine-learning-databases/iris/iris.data"
+url = "iris.data"
 names = ['sepal-length','sepal-with','petal-length','petal-with','class']
 dataset = pandas.read_csv(url,names=names)
 
