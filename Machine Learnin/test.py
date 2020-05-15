@@ -16,7 +16,7 @@ stress_df = pd.read_csv(r'stress.csv')
 features = stress_df.iloc[:,[0,1]].values
 label= stress_df.iloc[:,2].values
 #print(stress_df.info())
-
+#print('something')
 
 
 # 3. Training the model
