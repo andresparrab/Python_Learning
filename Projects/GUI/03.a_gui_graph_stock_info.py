@@ -11,7 +11,6 @@ end = datetime.datetime.now()
 stock = 'TSLA'
 
 df = web.DataReader(stock , 'stooq',start, end)
-
 print(df.head())
 
 
