@@ -4,6 +4,7 @@ import sys
 host = ''
 port = 5555
 
+# Creatina socket
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 try:
