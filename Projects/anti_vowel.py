@@ -11,4 +11,4 @@ def anti_vowel(text):
   return ''.join(result)
 
 
-print(anti_vowel('AndRes'))
+print(anti_vowel('AndRes is the best in the world'))
