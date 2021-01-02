@@ -8,7 +8,7 @@ class PlayerCharacter:
             self.age = age
     def shout(self):
         shouting = print(f"my name is {self.name}")
-        return "done"
+        return "done done"
 
 player1 = PlayerCharacter("Cindy", 44)
 player2 = PlayerCharacter("Tom", 21)
