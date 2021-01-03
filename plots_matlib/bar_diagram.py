@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 
+
 #Simple bar chart where the first  values are the midpoints of the bar and the second group of values are the height
 #plt.bar([1.5, 2.6, 4.8], [40, 55, 85])
 #plt.show()
